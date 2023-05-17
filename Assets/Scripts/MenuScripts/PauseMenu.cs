@@ -7,7 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private static bool paused = true;
     [SerializeField] private GameObject pauseMenuPanel;
-    [SerializeField] private GameObject playerUI; //para puder desligar a UI do Nomed quando tiver saido da pausa
+    [SerializeField] private GameObject playerUI; //para puder desligar a UI do player quando tiver saido da pausa
     [SerializeField] private GameObject optionsMenuPanel;
     [SerializeField] private GameObject controlsMenuPanel;
 
@@ -26,7 +26,7 @@ public class PauseMenu : MonoBehaviour
             {
                 OptionsBack();
             }
-            else if (controlsMenuPanel.activeSelf) // check if the controls panel is active
+            else if (controlsMenuPanel.activeSelf)
             {
                 ControlsBack();
             }
@@ -98,9 +98,14 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
     public void Retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void TryAgain()
+    {
+        SceneManager.LoadScene("GameScreen");
+    }
 }
