@@ -5,20 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
-    public void btnNewGame()
+    public void BtnNewGame()
     {
         SceneManager.LoadScene("Game");
     }
 
 
-    public void btnScore()
+    public void BtnScore()
     {
         SceneManager.LoadScene("");
     }
 
 
-    public void btnQuit()
+    public void BtnQuit()
     {
         Application.Quit();
+    }
+    public void BtnGameContext() {
+        SceneManager.LoadScene("GameContext");
     }
 }
