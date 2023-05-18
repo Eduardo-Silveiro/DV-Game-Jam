@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45044917, g: 0.5004496, b: 0.575194, a: 1}
+  m_IndirectSpecularColor: {r: 0.45044863, g: 0.5004491, b: 0.5751925, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4301,7 +4301,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 81.232605
+  field of view: 76
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -4327,7 +4327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129483110}
   m_LocalRotation: {x: 0.69079643, y: -0, z: -0, w: 0.7230493}
-  m_LocalPosition: {x: 9.41, y: 7.21, z: 1.15}
+  m_LocalPosition: {x: 8.51, y: 18.27, z: -5.33}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48746,13 +48746,13 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.45
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -48987,7 +48987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e29ef7849827d48841441f83c29d85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeValue: 5
+  timeValue: 120
   timeText: {fileID: 1400399554}
 --- !u!4 &1522778945 stripped
 Transform:
@@ -66961,16 +66961,28 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3303673043169463165, guid: e3c6446bdb0c3d74e9c38907b2dc0d56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2475
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303673043169463165, guid: e3c6446bdb0c3d74e9c38907b2dc0d56, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2475
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303673043169463165, guid: e3c6446bdb0c3d74e9c38907b2dc0d56, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2475
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303673043169463165, guid: e3c6446bdb0c3d74e9c38907b2dc0d56, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.66
+      value: 8.6625
       objectReference: {fileID: 0}
     - target: {fileID: 3303673043169463165, guid: e3c6446bdb0c3d74e9c38907b2dc0d56, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.081
+      value: -0.060581
       objectReference: {fileID: 0}
     - target: {fileID: 3303673043169463165, guid: e3c6446bdb0c3d74e9c38907b2dc0d56, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.6
+      value: 2.6074
       objectReference: {fileID: 0}
     - target: {fileID: 3303673043169463165, guid: e3c6446bdb0c3d74e9c38907b2dc0d56, type: 3}
       propertyPath: m_LocalRotation.w
@@ -67335,6 +67347,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 3298990611262876900}
+    - target: {fileID: 2109591291, guid: 155d1f87359434e489c7631b45515960, type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6285667521550909682, guid: 155d1f87359434e489c7631b45515960, type: 3}
       propertyPath: m_Name
       value: Hamburger

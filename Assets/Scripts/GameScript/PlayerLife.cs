@@ -36,6 +36,7 @@ public class PlayerLife : MonoBehaviour
             isDead = true;
             //animator.SetTrigger("Death");
             //playerDeathSound.Play();
+            SceneManager.LoadScene("GameOverScreen");
 
         }
         if (isDead == true)
