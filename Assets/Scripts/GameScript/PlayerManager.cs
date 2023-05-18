@@ -6,16 +6,23 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private PlayerData player;
-    
+    private int maxScore;
+
 
 
     // Start is called before the first frame update
     void Start()
-    {
-        player.Score = 0; 
+    {   
+        player.Score = 0;
+        player.HighScore = PlayerPrefs.GetInt("MaxScore",0);
+        maxScore = PlayerPrefs.GetInt("MaxScore", 0); 
     }
 
-    
+    private void Update()
+    {
+       
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Fruits"))
@@ -23,7 +30,21 @@ public class PlayerManager : MonoBehaviour
             
             player.Score += other.gameObject.GetComponent<ItemCollecter>().getScore();
             Destroy(other.gameObject);
+            if (player.Score > maxScore)
+            {
+                maxScore = player.Score;
+                player.HighScore = player.Score;
+            }
         }
     }
 
+
+    private void OnDestroy()
+    {
+        PlayerPrefs.SetInt("MaxScore", maxScore);
+        PlayerPrefs.Save(); 
+    }
+
+        
+        
 }

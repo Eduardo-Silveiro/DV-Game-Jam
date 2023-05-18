@@ -7,10 +7,17 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     [SerializeField] private int score;
+    [SerializeField] private int highScore;
 
     public int Score
     {
         get { return score; }
         set { score = value; }
+    }
+
+    public int HighScore
+    {
+        get { return highScore; }
+        set { highScore = value; }
     }
 }

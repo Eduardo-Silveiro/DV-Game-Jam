@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6856061258600556467}
   m_Layer: 0
   m_Name: Banana
-  m_TagString: Banana
+  m_TagString: Fruits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,7 @@ BoxCollider:
   m_Center: {x: 0, y: 0.24384364, z: 0.03647375}
 --- !u!95 &877791853713700469
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -120,7 +120,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &6856061258600556467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,4 +134,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8168a00248851b041bbc7ba2b4d3a2ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 11400000, guid: d3a8fc0514528b842a341275b7a8b09c, type: 2}
+  scorePoints: {fileID: 11400000, guid: d3a8fc0514528b842a341275b7a8b09c, type: 2}
