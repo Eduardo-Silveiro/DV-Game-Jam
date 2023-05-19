@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private PlayerData player;
     private int maxScore;
+    [SerializeField] private GameData gameData;
 
 
 
@@ -28,8 +29,9 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("Fruits"))
         {
             
-            player.Score += other.gameObject.GetComponent<ItemCollecter>().getScore();
-            Destroy(other.gameObject);
+            player.Score += other.gameObject.GetComponent<ItemCollecter>().GetScore();
+            other.gameObject.SetActive(false);
+            gameData.ActiveFruits--;
             if (player.Score > maxScore)
             {
                 maxScore = player.Score;

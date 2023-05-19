@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemCollecter : MonoBehaviour
 {
     [SerializeField] private Points scorePoints;
-
+   
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +19,9 @@ public class ItemCollecter : MonoBehaviour
     {
         
     }
-
    
 
-    public int getScore()
+    public int GetScore()
     {
         return scorePoints.Point;
     }

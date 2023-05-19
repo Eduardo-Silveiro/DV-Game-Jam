@@ -12,7 +12,7 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private float scale = 2f;
     [SerializeField] private Transform objectTransform;
     private PlayerData playerData;
-    [SerializeField] private int minusScore = 20;
+    [SerializeField] private int minusScore = 10;
     private Vector3 newScale;
 
     //[SerializeField] private Animator animator;
@@ -56,6 +56,7 @@ public class PlayerLife : MonoBehaviour
         }
 
     }
+
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -69,7 +70,10 @@ public class PlayerLife : MonoBehaviour
         }
 
         Debug.Log("Player Health:" + currentHealth);
-        //playerData.Score -= minusScore;
+       /* if (playerData.Score > 0)
+        {
+            playerData.Score -= minusScore;
+        }*/
     }
 
     public void SetBellyScale() {

@@ -161,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -703, y: -183}
+  m_AnchoredPosition: {x: -671, y: -187}
   m_SizeDelta: {x: 287.3384, y: 121.9676}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &106741478
@@ -289,12 +289,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 592050428}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -517, y: -188}
-  m_SizeDelta: {x: 818.6485, y: 100.6838}
+  m_AnchoredPosition: {x: -654, y: -222}
+  m_SizeDelta: {x: 524.4658, y: 126.1877}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &138321576
 MonoBehaviour:
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Puto Larilas
+  m_text: NutriRunner
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 022122b3e6a723a45a0dc1aa3e10aa1c, type: 2}
   m_sharedMaterial: {fileID: 1027343854587133380, guid: 022122b3e6a723a45a0dc1aa3e10aa1c, type: 2}
@@ -343,8 +343,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -499,13 +499,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 138321575}
+  - {fileID: 1244186095}
   - {fileID: 655402263}
   - {fileID: 791888161}
   - {fileID: 106741477}
   - {fileID: 699443550}
+  - {fileID: 138321575}
   m_Father: {fileID: 1650039119}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -588,7 +589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -703, y: 119}
+  m_AnchoredPosition: {x: -671, y: 115}
   m_SizeDelta: {x: 287.3384, y: 121.9676}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &655402264
@@ -723,7 +724,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -702.9624, y: -335}
+  m_AnchoredPosition: {x: -670.9624, y: -339}
   m_SizeDelta: {x: 287.3384, y: 121.9676}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &699443551
@@ -1069,7 +1070,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -703, y: -31}
+  m_AnchoredPosition: {x: -671, y: -35}
   m_SizeDelta: {x: 287.3384, y: 121.9676}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &791888162
@@ -1348,13 +1349,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1650039119}
+  m_Father: {fileID: 592050428}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -705.5587, y: 0.000061035156}
-  m_SizeDelta: {x: -1411.1176, y: 0}
+  m_AnchoredPosition: {x: -670.4908, y: 0}
+  m_SizeDelta: {x: -1340.9817, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1244186096
 MonoBehaviour:
@@ -1369,14 +1370,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1841,7 +1842,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1244186095}
   - {fileID: 592050428}
   m_Father: {fileID: 0}
   m_RootOrder: 2
