@@ -9,7 +9,12 @@ public class PlayerLife : MonoBehaviour
 
     [SerializeField] private float health = 100f;
     [SerializeField] private float currentHealth;
-    
+    [SerializeField] private float scale = 2f;
+    [SerializeField] private Transform objectTransform;
+    private PlayerData playerData;
+    [SerializeField] private int minusScore = 20;
+    private Vector3 newScale;
+
     //[SerializeField] private Animator animator;
     private bool isDead;
 
@@ -20,9 +25,10 @@ public class PlayerLife : MonoBehaviour
 
     private void Start()
     {
+        newScale = objectTransform.localScale;
         isDead = false;
         currentHealth = health;
-        
+        //objectTransform = GetComponent<Transform>();
        //animator.SetBool("canAnimate", true);
 
     }
@@ -50,10 +56,13 @@ public class PlayerLife : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
+        newScale.x *= scale;
+        newScale.z *= scale;
+        objectTransform.localScale = newScale;
         Debug.Log("Player Health:" + currentHealth);
-
+        //playerData.Score -= minusScore;
     }
+
     public void IncreaseCurrentLife(float amount)
     {
         if (currentHealth < 100 && isDead == false)
