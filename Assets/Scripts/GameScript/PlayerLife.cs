@@ -23,6 +23,8 @@ public class PlayerLife : MonoBehaviour
     //private TMP_Text text;
     //[SerializeField] private AudioSource deathsound;
 
+    private PlayerMovement playerMovement;
+
     private void Start()
     {
         newScale = objectTransform.localScale;
@@ -30,6 +32,7 @@ public class PlayerLife : MonoBehaviour
         currentHealth = health;
         //objectTransform = GetComponent<Transform>();
        //animator.SetBool("canAnimate", true);
+       playerMovement = GetComponent<PlayerMovement>(); 
 
     }
 
@@ -56,11 +59,24 @@ public class PlayerLife : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        newScale.x *= scale;
-        newScale.z *= scale;
-        objectTransform.localScale = newScale;
+        SetBellyScale();
+
+        if (currentHealth == 50) {
+            playerMovement.SetSpeed(1.9f);
+        }
+        if (currentHealth == 20) {
+            playerMovement.SetSpeed(1.8f);
+        }
+
         Debug.Log("Player Health:" + currentHealth);
         //playerData.Score -= minusScore;
+    }
+
+    public void SetBellyScale() {
+        newScale.x *= scale;
+        newScale.y = -0.45f;
+        newScale.z *= scale;
+        objectTransform.localScale = newScale;
     }
 
     public void IncreaseCurrentLife(float amount)

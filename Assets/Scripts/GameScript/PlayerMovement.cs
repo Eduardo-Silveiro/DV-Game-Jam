@@ -53,5 +53,12 @@ public class PlayerMovement : MonoBehaviour
         this.canMove = canMove;
     }
 
+    public float GetSpeed() {
+        return speed;
+    }
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed; 
+    }
     
 }
