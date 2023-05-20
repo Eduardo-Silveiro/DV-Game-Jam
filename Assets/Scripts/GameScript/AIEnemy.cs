@@ -27,22 +27,12 @@ public class AIEnemy : MonoBehaviour
     [SerializeField] private float sightRange, attackRange;
     private bool playerInSightRange, playerInAttackRange;
 
-    //Animations
-    //private Animator animator;
-
 
     // Audio Source
     //[SerializeField] private AudioSource attackSound;
     //[SerializeField] private AudioSource deathSound;
 
 
-
-    private void Start()
-    {
-        //animator = GetComponent<Animator>();
-        
-
-    }
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -88,7 +78,7 @@ public class AIEnemy : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
-        //animator.SetBool("isAttacked", false);
+        
     }
 
     private void AttackPlayer()
@@ -103,9 +93,9 @@ public class AIEnemy : MonoBehaviour
                 if (player.GetComponent<PlayerLife>().GetCurrentHealth() > 0)
                 {
                     player.GetComponent<PlayerLife>().TakeDamage(meleeDamage);
-                    //animator.SetBool("isAttacked", true);
+                    
                     alreadyAttacked = true;
-                    //attackSound.Play();
+                    
                     Invoke(nameof(ResetAttack), timeBetweenAttacks);
                 }
             }
@@ -114,40 +104,6 @@ public class AIEnemy : MonoBehaviour
     {
         alreadyAttacked = false;
     }
-/*
-    public void TakeDamage(int damage)
-    {
-
-        if (health <= 0)
-        {
-            return; // don't take any more damage if enemy is already dead
-        }
-
-        health -= damage;
-
-        if (health <= 0)
-        {
-            //animator.SetTrigger("isDead");
-            isDead = true;
-
-
-            goldCollector.IncreaseGold(GOLD_VALUE);
-            deathSound.Play();
-            Invoke(nameof(DestroyEnemy), 2f);
-
-
-        }
-
-        Debug.Log("Demon" + health);
-    }
-
-    private void DestroyEnemy()
-    {
-
-        Destroy(gameObject);
-
-    }*/
-
 
     /** Draw the Attack Range Line and the Chase Range Line **/
     private void OnDrawGizmosSelected()
@@ -156,10 +112,5 @@ public class AIEnemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
-    }
-
-    public float gethealth()
-    {
-        return health;
     }
 }

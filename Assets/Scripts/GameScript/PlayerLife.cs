@@ -11,16 +11,14 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private float currentHealth;
     [SerializeField] private float scale = 2f;
     [SerializeField] private Transform objectTransform;
-    private PlayerData playerData;
+    [SerializeField] private PlayerData playerData;
     [SerializeField] private int minusScore = 10;
     private Vector3 newScale;
 
-    //[SerializeField] private Animator animator;
     private bool isDead;
 
     //[SerializeField] private AudioSource playerDeathSound;
 
-    //private TMP_Text text;
     //[SerializeField] private AudioSource deathsound;
 
     private PlayerMovement playerMovement;
@@ -30,15 +28,12 @@ public class PlayerLife : MonoBehaviour
         newScale = objectTransform.localScale;
         isDead = false;
         currentHealth = health;
-        //objectTransform = GetComponent<Transform>();
-       //animator.SetBool("canAnimate", true);
-       playerMovement = GetComponent<PlayerMovement>(); 
+        playerMovement = GetComponent<PlayerMovement>(); 
 
     }
 
     void Update()
     {
-        //healthBar.fillAmount = Mathf.Clamp(currentHealth / health, 0, 1);
         
         if (currentHealth <= 0 && isDead == false)
         {
@@ -70,10 +65,15 @@ public class PlayerLife : MonoBehaviour
         }
 
         Debug.Log("Player Health:" + currentHealth);
-       /* if (playerData.Score > 0)
+
+        if (playerData.Score-minusScore >= 0 )
         {
+
             playerData.Score -= minusScore;
-        }*/
+        }
+        if (playerData.Score - minusScore < 0) {
+            playerData.Score = 0;
+        }
     }
 
     public void SetBellyScale() {
@@ -107,7 +107,6 @@ public class PlayerLife : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
-        //SceneManager.LoadScene("GameOver");
         Debug.Log("Player died");
     }
 }

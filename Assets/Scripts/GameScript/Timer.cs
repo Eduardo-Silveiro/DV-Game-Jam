@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
         else
         {
             timeValue = 0;
-            SceneManager.LoadScene("GameOverScreen");
+            SceneManager.LoadScene("WinScreen");
         }
 
         DisplayTime(timeValue);
