@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float smothSpeed;
     private Animator animator;
     private bool canMove;
-    [SerializeField] AudioSource playerSteps;
+   
     
 
     private void Start()

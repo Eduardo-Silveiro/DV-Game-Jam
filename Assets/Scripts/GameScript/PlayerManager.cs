@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private PlayerData player;
     private int maxScore;
     [SerializeField] private GameData gameData;
-
+    [SerializeField] AudioSource collectSound;
 
 
     // Start is called before the first frame update
@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Fruits"))
         {
-            
+            collectSound.Play();
             player.Score += other.gameObject.GetComponent<ItemCollecter>().GetScore();
             other.gameObject.SetActive(false);
             gameData.ActiveFruits--;

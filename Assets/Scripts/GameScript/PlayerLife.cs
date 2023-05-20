@@ -13,9 +13,11 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private Transform objectTransform;
     [SerializeField] private PlayerData playerData;
     [SerializeField] private int minusScore = 10;
+    [SerializeField] private GameObject explosion;
     private Vector3 newScale;
 
     private bool isDead;
+    private bool changeScene;
 
     //[SerializeField] private AudioSource playerDeathSound;
 
@@ -27,6 +29,7 @@ public class PlayerLife : MonoBehaviour
     {
         newScale = objectTransform.localScale;
         isDead = false;
+        changeScene = false;
         currentHealth = health;
         playerMovement = GetComponent<PlayerMovement>(); 
 
@@ -34,13 +37,19 @@ public class PlayerLife : MonoBehaviour
 
     void Update()
     {
-        
-        if (currentHealth <= 0 && isDead == false)
+        if (changeScene == true)
+        {
+            Debug.Log(changeScene);
+            SceneManager.LoadScene("GameOverScreen");
+        }
+        if (currentHealth <= 0 && isDead == false  && changeScene == false)
         {
             isDead = true;
             //animator.SetTrigger("Death");
             //playerDeathSound.Play();
-            SceneManager.LoadScene("GameOverScreen");
+
+            
+            
 
         }
         if (isDead == true)
@@ -48,7 +57,14 @@ public class PlayerLife : MonoBehaviour
             GetComponent<PlayerMovement>().SetCanMove(false);
             //animator.SetBool("canAnimate", false);
             Die();
+            Invoke(nameof(ChangeScene), 2f);
+            isDead = false;
+            
+
+
         }
+        
+
 
     }
 
@@ -106,7 +122,14 @@ public class PlayerLife : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+       gameObject.SetActive(false); 
+        Instantiate(explosion, transform.position, Quaternion.identity);
         Debug.Log("Player died");
+    }
+
+    private void ChangeScene()
+    {
+        Debug.Log("oi gato");
+        changeScene = true;
     }
 }
