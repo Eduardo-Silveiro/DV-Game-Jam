@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45044917, g: 0.5004496, b: 0.575194, a: 1}
+  m_IndirectSpecularColor: {r: 0.45044917, g: 0.5004496, b: 0.57519394, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1724,6 +1724,8 @@ MonoBehaviour:
   ScoreText: {fileID: 1114836912}
   HighScoreText: {fileID: 1309271838}
   player: {fileID: 11400000, guid: 5595960326ee20141b8a3833c1009075, type: 2}
+  gameData: {fileID: 11400000, guid: b31a8de06fe18604cab8751e13a7c2be, type: 2}
+  playerDeathSound: {fileID: 3298990611262876901}
 --- !u!114 &129483117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1766,7 +1768,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -26921,6 +26923,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3298990611262876908, guid: e3c6446bdb0c3d74e9c38907b2dc0d56, type: 3}
+      propertyPath: Priority
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 3300751683023964679, guid: e3c6446bdb0c3d74e9c38907b2dc0d56, type: 3}
       propertyPath: m_Name
       value: Player
@@ -26969,11 +26975,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8518469476837054977, guid: e3c6446bdb0c3d74e9c38907b2dc0d56, type: 3}
+      propertyPath: Priority
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 8518469476837054977, guid: e3c6446bdb0c3d74e9c38907b2dc0d56, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3c6446bdb0c3d74e9c38907b2dc0d56, type: 3}
 --- !u!4 &3298990611262876900 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3303673043169463165, guid: e3c6446bdb0c3d74e9c38907b2dc0d56, type: 3}
+  m_PrefabInstance: {fileID: 3298990611262876899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &3298990611262876901 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3298990611262876908, guid: e3c6446bdb0c3d74e9c38907b2dc0d56, type: 3}
   m_PrefabInstance: {fileID: 3298990611262876899}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3735319027274757232

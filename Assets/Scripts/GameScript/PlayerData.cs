@@ -8,7 +8,7 @@ public class PlayerData : ScriptableObject
 {
     [SerializeField] private int score;
     [SerializeField] private int highScore;
-
+    
     public int Score
     {
         get { return score; }

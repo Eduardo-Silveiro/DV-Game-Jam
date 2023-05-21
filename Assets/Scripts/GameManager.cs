@@ -2,26 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI ScoreText;
     [SerializeField] private TextMeshProUGUI HighScoreText;
     [SerializeField] private PlayerData player;
-   
+    [SerializeField] private GameData gameData;
+    private bool hasPlayed;
+    [SerializeField] private AudioSource playerDeathSound;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        
+        hasPlayed = false;
     }
-
-    // Update is called once per frame
     void Update()
     {
+        if (gameData.ISDead==true && hasPlayed == false) { 
+
+            hasPlayed=true;
+            playerDeathSound.Play();
+
+        }
+        if (gameData.ChangeSceen == true)
+        {
+            Debug.Log(gameData.ChangeSceen);
+            SceneManager.LoadScene("GameOverScreen");
+        }
+
         ScoreText.text = "Score: " + player.Score;
         HighScoreText.text = "HighScore: " + player.HighScore;
     }
+
 
 
 

@@ -15,21 +15,18 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private int minusScore = 10;
     [SerializeField] private GameObject explosion;
     private Vector3 newScale;
+    [SerializeField] private GameData gameData;
 
-    private bool isDead;
-    private bool changeScene;
 
-    //[SerializeField] private AudioSource playerDeathSound;
-
-    //[SerializeField] private AudioSource deathsound;
+    
 
     private PlayerMovement playerMovement;
 
     private void Start()
     {
         newScale = objectTransform.localScale;
-        isDead = false;
-        changeScene = false;
+        gameData.ISDead = false;
+        gameData.ChangeSceen  = false;
         currentHealth = health;
         playerMovement = GetComponent<PlayerMovement>(); 
 
@@ -37,31 +34,22 @@ public class PlayerLife : MonoBehaviour
 
     void Update()
     {
-        if (changeScene == true)
+        
+        if (currentHealth <= 0 && gameData.ISDead == false  && gameData.ChangeSceen == false)
         {
-            Debug.Log(changeScene);
-            SceneManager.LoadScene("GameOverScreen");
-        }
-        if (currentHealth <= 0 && isDead == false  && changeScene == false)
-        {
-            isDead = true;
-            //animator.SetTrigger("Death");
-            //playerDeathSound.Play();
-
+            gameData.ISDead = true;
             
             
 
         }
-        if (isDead == true)
+        if (gameData.ISDead == true)
         {
             GetComponent<PlayerMovement>().SetCanMove(false);
-            //animator.SetBool("canAnimate", false);
-            Die();
-            Invoke(nameof(ChangeScene), 2f);
-            isDead = false;
             
-
-
+            Die();
+            Invoke(nameof(ChangeScene), 1.5f);
+            gameData.ISDead = false;
+            
         }
         
 
@@ -82,12 +70,17 @@ public class PlayerLife : MonoBehaviour
 
         Debug.Log("Player Health:" + currentHealth);
 
-        if (playerData.Score-minusScore >= 0 )
+        ScoreChecker();
+    }
+
+    public void ScoreChecker() {
+        if (playerData.Score - minusScore >= 0)
         {
 
             playerData.Score -= minusScore;
         }
-        if (playerData.Score - minusScore < 0) {
+        if (playerData.Score - minusScore < 0)
+        {
             playerData.Score = 0;
         }
     }
@@ -101,7 +94,7 @@ public class PlayerLife : MonoBehaviour
 
     public void IncreaseCurrentLife(float amount)
     {
-        if (currentHealth < 100 && isDead == false)
+        if (currentHealth < 100 && gameData.ISDead == false)
         {
             currentHealth += amount;
             if (currentHealth > 100)
@@ -115,21 +108,16 @@ public class PlayerLife : MonoBehaviour
         return currentHealth;
     }
 
-    public bool GetIsDead()
-    {
-        return isDead;
-    }
-
     private void Die()
     {
-       gameObject.SetActive(false); 
+        
+        gameObject.SetActive(false); 
         Instantiate(explosion, transform.position, Quaternion.identity);
         Debug.Log("Player died");
     }
 
     private void ChangeScene()
     {
-        Debug.Log("oi gato");
-        changeScene = true;
+        gameData.ChangeSceen = true;
     }
 }
