@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 63624949}
   - component: {fileID: 63624952}
   - component: {fileID: 63624951}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 626424442}
   - component: {fileID: 626424445}
   - component: {fileID: 626424444}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 1238598730}
   - component: {fileID: 1238598733}
   - component: {fileID: 1238598732}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1948352782}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 2047781595}
   - component: {fileID: 2047781598}
   - component: {fileID: 2047781597}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,8 @@ GameObject:
   - component: {fileID: 2109591289}
   - component: {fileID: 6285667520839930065}
   - component: {fileID: 6285667520839930072}
-  m_Layer: 0
+  - component: {fileID: 101610152}
+  m_Layer: 8
   m_Name: Hamburger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +487,7 @@ MonoBehaviour:
   walkPointRange: 1.92
   timeBetweenAttacks: 0.5
   meleeDamage: 10
-  sightRange: 1.93
+  sightRange: 9
   attackRange: 0.69
 --- !u!54 &2109591290
 Rigidbody:
@@ -513,7 +514,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6285667521550909682}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.16
+  m_Radius: 0.24
   m_Speed: 1.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -559,8 +560,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1.9
-  MaxDistance: 5.61
+  MinDistance: 2.11
+  MaxDistance: 7.19
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -635,3 +636,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &101610152
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6285667521550909682}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.30335575, y: 0.28791663, z: 0.26175672}
+  m_Center: {x: 0.010045623, y: 0.14395832, z: -0.013678849}
