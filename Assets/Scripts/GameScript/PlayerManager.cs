@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     private int maxScore;
     [SerializeField] private GameData gameData;
     [SerializeField] AudioSource collectSound;
-
+    [SerializeField] private Timer timer;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,7 @@ public class PlayerManager : MonoBehaviour
             player.Score += other.gameObject.GetComponent<ItemCollecter>().GetScore();
             other.gameObject.SetActive(false);
             gameData.ActiveFruits--;
+            timer.AddTime();
             if (player.Score > maxScore)
             {
                 maxScore = player.Score;
