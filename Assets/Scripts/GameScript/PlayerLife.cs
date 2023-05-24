@@ -23,7 +23,7 @@ public class PlayerLife : MonoBehaviour
     private void Start()
     {
         newScale = objectTransform.localScale;
-        gameData.ISDead = false;
+        gameData.IsDead = false;
         gameData.ChangeSceen = false;
         currentHealth = health;
         playerMovement = GetComponent<PlayerMovement>();
@@ -31,17 +31,17 @@ public class PlayerLife : MonoBehaviour
 
     void Update()
     {
-        if (currentHealth <= 0 && gameData.ISDead == false && gameData.ChangeSceen == false)
+        if (currentHealth <= 0 && gameData.IsDead == false && gameData.ChangeSceen == false)
         {
-            gameData.ISDead = true;
+            gameData.IsDead = true;
         }
 
-        if (gameData.ISDead == true)
+        if (gameData.IsDead == true)
         {
             GetComponent<PlayerMovement>().SetCanMove(false);
             Die();
             Invoke(nameof(ChangeScene), 1.5f);
-            gameData.ISDead = false;
+            gameData.IsDead = false;
         }
     }
 
@@ -100,7 +100,7 @@ public class PlayerLife : MonoBehaviour
     /// <param name="amount">The amount to increase the current health.</param>
     public void IncreaseCurrentLife(float amount)
     {
-        if (currentHealth < 100 && gameData.ISDead == false)
+        if (currentHealth < 100 && gameData.IsDead == false)
         {
             currentHealth += amount;
             if (currentHealth > 100)

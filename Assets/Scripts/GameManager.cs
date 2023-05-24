@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if (gameData.ISDead==true && hasPlayed == false) { 
+        if (gameData.IsDead == true && hasPlayed == false) { 
 
             hasPlayed=true;
             playerDeathSound.Play();

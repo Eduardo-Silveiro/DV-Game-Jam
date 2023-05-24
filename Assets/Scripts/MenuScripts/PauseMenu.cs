@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private static bool paused = true;
@@ -108,4 +109,6 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene("GameScreen");
     }
+
+  
 }
