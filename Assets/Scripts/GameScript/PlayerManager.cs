@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Manages the player in the game.
+/// </summary>
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private PlayerData player;
@@ -11,19 +14,23 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] AudioSource collectSound;
     [SerializeField] private Timer timer;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Called before the first frame update.
+    /// Initializes player score and high score.
+    /// </summary>
     void Start()
-    {   
-        player.Score = 0;
-        player.HighScore = PlayerPrefs.GetInt("MaxScore",0);
-        maxScore = PlayerPrefs.GetInt("MaxScore", 0); 
-    }
-
-    private void Update()
     {
-       
+        player.Score = 0;
+        player.HighScore = PlayerPrefs.GetInt("MaxScore", 0);
+        maxScore = PlayerPrefs.GetInt("MaxScore", 0);
     }
 
+
+    /// <summary>
+    /// Called when the player collides with a trigger collider.
+    /// Handles collecting fruits, updating score, and saving high score.
+    /// </summary>
+    /// <param name="other">The collider that the player collided with.</param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Fruits"))
@@ -41,13 +48,13 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Called when the player object is destroyed.
+    /// Saves the maximum score to player preferences.
+    /// </summary>
     private void OnDestroy()
     {
         PlayerPrefs.SetInt("MaxScore", maxScore);
-        PlayerPrefs.Save(); 
+        PlayerPrefs.Save();
     }
-
-        
-        
 }

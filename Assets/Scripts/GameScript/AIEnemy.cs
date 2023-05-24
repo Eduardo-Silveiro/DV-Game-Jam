@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Represents an AI enemy character.
+/// </summary>
 public class AIEnemy : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
-
     [SerializeField] private Transform player;
-
     [SerializeField] private LayerMask whatIsGround, whatIsPlayer;
-
     [SerializeField] private float health = 100f;
 
-    //Patroling
+    //Patrolling
     [SerializeField] private Vector3 walkPoint;
     bool walkPointSet;
     [SerializeField] private float walkPointRange;
@@ -27,12 +27,6 @@ public class AIEnemy : MonoBehaviour
     [SerializeField] private float sightRange, attackRange;
     private bool playerInSightRange, playerInAttackRange;
 
-
-    // Audio Source
-    //[SerializeField] private AudioSource attackSound;
-    //[SerializeField] private AudioSource deathSound;
-
-
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -41,7 +35,6 @@ public class AIEnemy : MonoBehaviour
 
     private void Update()
     {
-        //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
@@ -50,6 +43,9 @@ public class AIEnemy : MonoBehaviour
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
     }
 
+    /// <summary>
+    /// Perform patrolling behavior.
+    /// </summary>
     private void Patroling()
     {
         if (!walkPointSet) SearchWalkPoint();
@@ -59,13 +55,15 @@ public class AIEnemy : MonoBehaviour
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        //Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
+
+    /// <summary>
+    /// Search for a random walk point within the specified range.
+    /// </summary>
     private void SearchWalkPoint()
     {
-        //Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
@@ -75,37 +73,45 @@ public class AIEnemy : MonoBehaviour
             walkPointSet = true;
     }
 
+    /// <summary>
+    /// Chase the player.
+    /// </summary>
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
-        
     }
 
+    /// <summary>
+    /// Attack the player.
+    /// </summary>
     private void AttackPlayer()
     {
-        //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
         transform.LookAt(player);
 
-            if (!alreadyAttacked)
+        if (!alreadyAttacked)
+        {
+            if (player.GetComponent<PlayerLife>().GetCurrentHealth() > 0)
             {
-                if (player.GetComponent<PlayerLife>().GetCurrentHealth() > 0)
-                {
-                    player.GetComponent<PlayerLife>().TakeDamage(meleeDamage);
-                    
-                    alreadyAttacked = true;
-                    
-                    Invoke(nameof(ResetAttack), timeBetweenAttacks);
-                }
+                player.GetComponent<PlayerLife>().TakeDamage(meleeDamage);
+                alreadyAttacked = true;
+                Invoke(nameof(ResetAttack), timeBetweenAttacks);
             }
+        }
     }
+
+    /// <summary>
+    /// Reset the attack state.
+    /// </summary>
     private void ResetAttack()
     {
         alreadyAttacked = false;
     }
 
-    /** Draw the Attack Range Line and the Chase Range Line **/
+    /// <summary>
+    /// Draws Gizmos to visualize the attack and sight ranges.
+    /// </summary>
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

@@ -1,12 +1,13 @@
 using UnityEngine;
 
+/// <summary>
+/// Controls the activation of fruits in the game.
+/// </summary>
 public class ActivateFruits : MonoBehaviour
 {
-
-
-    [SerializeField] private GameObject[] fruits; 
+    [SerializeField] private GameObject[] fruits;
     [SerializeField] private GameData gameData;
-    private GameObject activeFruit; 
+    private GameObject activeFruit;
 
     private void Start()
     {
@@ -26,14 +27,14 @@ public class ActivateFruits : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Shows a random fruit by activating it.
+    /// </summary>
     private void ShowFruits()
     {
         int randomIndex = Random.Range(0, fruits.Length);
         activeFruit = fruits[randomIndex];
         activeFruit.SetActive(true);
         gameData.ActiveFruits++;
-
     }
-    
-    
-}   
+}

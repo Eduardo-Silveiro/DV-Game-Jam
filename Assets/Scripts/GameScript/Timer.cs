@@ -5,13 +5,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Represents a timer in the game.
+/// </summary>
 public class Timer : MonoBehaviour
 {
-
-    [SerializeReference] private float timeValue = 180f;
+    [SerializeField] private float timeValue = 180f;
     [SerializeField] private TextMeshProUGUI timeText;
 
-
+    /// <summary>
+    /// Updates the timer each frame.
+    /// Decreases the time value and loads the win screen when the time runs out.
+    /// </summary>
     private void Update()
     {
         if (timeValue > 0)
@@ -27,6 +32,10 @@ public class Timer : MonoBehaviour
         DisplayTime(timeValue);
     }
 
+    /// <summary>
+    /// Displays the remaining time on the UI.
+    /// </summary>
+    /// <param name="timeToDisplay">The time to display.</param>
     private void DisplayTime(float timeToDisplay)
     {
         if (timeToDisplay < 0)
@@ -44,6 +53,9 @@ public class Timer : MonoBehaviour
         timeText.text = string.Format("Time Remaining \n {0:00}:{1:00}", minutes, seconds);
     }
 
+    /// <summary>
+    /// Adds additional time to the timer.
+    /// </summary>
     public void AddTime()
     {
         timeValue++;
